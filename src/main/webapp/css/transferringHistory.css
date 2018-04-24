@@ -1,0 +1,52 @@
+body {
+	padding-top: 20pt;
+	background: #3a6186; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #3a6186, #a7bacc);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #3a6186, #a7bacc);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+
+.transferringHistory td, .transferringHistory th {
+	border: 1px solid #ddd;
+	padding: 9px;
+}
+
+#transferringHistory tr:nth-child(odd) {
+	background-color: #e9e9e9;
+}
+
+.transferringHistory tr:nth-child(even) {
+	background-color: #d9d9d9;
+}
+
+#transferringHistory tr:hover {
+	background-color: #ffff60;
+}
+
+.transferringHistory th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	background-color: #0080ff;
+	color: white;
+}
+
+/* #btnSubmit { */
+/* 	background-color: #0080ff; */
+/* 	border: none; */
+/* 	color: white; */
+/* 	padding: 15px 15px; */
+/* 	text-align: center; */
+/* 	text-decoration: none; */
+/* 	display: inline-block; */
+/* 	font-size: 15px; */
+/* } */
+
+/* #btnSubmit:hover { */
+/* 	background-color: #002db3; */
+/* } */

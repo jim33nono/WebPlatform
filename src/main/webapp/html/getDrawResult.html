@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/bootstrap-3.3.7.min.css">
+<link rel="stylesheet" href="../css/bootstrap-dialog.min.css">
+<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="../css/transfer.css">
+
+</head>
+
+<body ng-app="myApp" ng-controller="getDrawResultController">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9 col-md-offset-right-2">
+			<h2>Get Draw Result</h2>
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" ng-model="keno_channel" id="keno-channel" ng-init="keno_channel = true">Keno</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" ng-model="ilotto_channel" id="ilotto-channel" ng-init="ilotto_channel = false">iLotto</a>
+							</div>
+						</div>
+						<hr>
+						<br>
+						<div class="row">
+							<div class="col-xs-3">
+								<a href="#" class="active" id="dev-lotto-form-link">Dev</a>
+							</div>
+							<div class="col-xs-3">
+								<a href="#" id="staging-lotto-form-link">Staging</a>
+							</div>
+							<div class="col-xs-3">
+								<a href="#" id="prod-lotto-form-link">Prod</a>
+							</div>
+							<div class="col-xs-3">
+								<input type="button" name="submit" ng-click="submitGetDrawResult()" id="submitGetDrawResultTop" tabindex="9" class="form-control btn btn-special" value="Submit">
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="deposit-form" action="" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<label for="">gameCode</label> 
+										<input type="text" name="" ng-model="getDrawResultReq.gameCode" id="getDrawResultReqGameCode" tabindex="1" class="form-control" placeholder="Game Code" ng-init="getDrawResultReq.gameCode ='KN'">
+									</div>
+									<div class="form-group">
+										<label for="">market</label>
+										<input type="text" name="" ng-model="getDrawResultReq.market" id="getDrawResultReqMarket" tabindex="2" class="form-control" placeholder="Market" ng-init="getDrawResultReq.market ='KN04'">
+									</div>
+									
+									<div class="form-group">
+										<label for="dtp_input" class="control-label">drawDate</label>
+										<div class="input-group date form_date" data-date='2017-11-01' data-date-format="yyyy-mm-dd">
+											<input class="form-control" size="16" type="text" ng-model="getDrawResultReq.drawDate" id="getDrawResultReqDrawDate" tabindex="3" class="form-control" placeholder="Draw Date" ng-init="getDrawResultReq.drawDate ='2017-11-01'">
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-remove"></span>
+											</span>
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="dtp_input" class="control-label">beginDate</label>
+										<div class="input-group date form_datetime" data-date='2017-10-31T15:21:40Z' data-date-format="yyyymmddThhiiss">
+											<input class="form-control" size="16" type="text"  ng-model="getDrawResultReq.beginDate" id="getDrawResultReqBeginDate" tabindex="4" class="form-control" placeholder="Begin Date" ng-init="getDrawResultReq.beginDate ='20171031T152140'">
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-remove"></span>
+											</span>
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="dtp_input" class="control-label">endDate</label>
+										<div class="input-group date form_datetime " data-date='2017-11-02T15:11:40Z' data-date-format="yyyymmddThhiiss">
+											<input class="form-control" size="16" type="text" ng-model="getDrawResultReq.endDate" id="getDrawResultReqEndDate" tabindex="5" class="form-control" placeholder="End Date" ng-init="getDrawResultReq.endDate ='20171102T151140'">
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-remove"></span>
+											</span>
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="">pageIndex</label>
+										<input type="text" name="" ng-model="getDrawResultReq.pageIndex" id="getDrawResultReqPageIndex" tabindex="6" class="form-control" placeholder="Page Index" ng-init="getDrawResultReq.pageIndex ='1'">
+									</div>
+									<div class="form-group">
+										<label for="">merchantCode</label>
+										<input type="text" name="" ng-model="getDrawResultReq.merchantCode" id="getDrawResultReqMerchantCode" tabindex="7" class="form-control" placeholder="Page Index" ng-init="getDrawResultReq.merchantCode ='TEST'">
+									</div>
+									<div class="form-group">
+										<label for="">Response Log</label>
+										<textarea rows="5" name="" ng-model="getDrawResultRes" id="getDrawResultRes" tabindex="8" class="form-control" placeholder="Response Log"></textarea>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="button" name="submit" ng-click="submitGetDrawResult()" id="submitGetDrawResultBottom" tabindex="9" class="form-control btn btn-deposit" value="Submit">
+											</div>
+										</div>
+									</div>
+
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../js/jquery/jquery-3.2.1.js"></script>
+	<script src="../js/bootstrap/bootstrap-3.3.7.min.js"></script>
+	<script src="../js/bootstrap/bootstrap-dialog.min.js"></script>
+	<script src="../js/bootstrap/bootstrap-datetimepicker.min.js"></script>
+	<script src="../js/angular/angular-1.6.6.min.js"></script>
+	<script src='../js/getDrawResult.js'></script>
+</html>

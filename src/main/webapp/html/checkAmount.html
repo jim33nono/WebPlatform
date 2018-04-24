@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/bootstrap-3.3.7.min.css">
+<link rel="stylesheet" href="../css/bootstrap-dialog.min.css">
+<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="../css/transfer.css">
+
+</head>
+
+<body ng-app="myApp" ng-controller="checkAmountController">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9 col-md-offset-right-2">
+				<h2>Check Amount</h2>
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" ng-model="keno_channel" id="keno-channel" ng-init="keno_channel = true">Keno</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" ng-model="ilotto_channel" id="ilotto-channel" ng-init="ilotto_channel = false">iLotto</a>
+							</div>
+						</div>
+						<hr>
+						<br>
+						<div class="row">
+							<div class="col-xs-4">
+								<a href="#" class="active" id="dev-lotto-form-link">Dev</a>
+							</div>
+							<div class="col-xs-4">
+								<a href="#" id="staging-lotto-form-link">Staging</a>
+							</div>
+							<div class="col-xs-4">
+								<a href="#" id="prod-lotto-form-link">Prod</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="deposit-form" action="" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<label for="">acctId</label>
+										<input type="text" name="" ng-model="checkAmountReq.acctId" id="checkAmountReqAcctId" tabindex="1" class="form-control" placeholder="Acct ID" ng-init="checkAmountReq.acctId ='Test10002'">
+									</div>
+
+									<div class="form-group">
+										<label for="dtp_input" class="control-label">beginDate</label>
+										<div class="input-group date form_datetime" data-date="2017-10-31T15:21:40" data-date-format="yyyymmddThhiiss">
+											<input class="form-control" size="16" type="text" ng-model="checkAmountReq.beginDate" id="checkAmountReqBeginDate" tabindex="2" class="form-control" placeholder="Begin Date" ng-init="checkAmountReq.beginDate ='20171031T152140'">
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-remove"></span>
+											</span>
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="dtp_input" class="control-label">endDate</label>
+										<div class="input-group date form_datetime" data-date="2017-11-02T15:11:40" data-date-format="yyyymmddThhiiss">
+											<input class="form-control" size="16" type="text" ng-model="checkAmountReq.endDate" id="checkAmountReqEndDate" tabindex="3" class="form-control" placeholder="End Date" ng-init="checkAmountReq.endDate ='20171102T151140'">
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-remove"></span>
+											</span>
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="">pageIndex</label>
+										<input type="text" name="" ng-model="checkAmountReq.pageIndex" id="checkAmountReqPageIndex" tabindex="4" class="form-control" placeholder="Page Index" ng-init="checkAmountReq.pageIndex ='1'">
+									</div>
+									<div class="form-group">
+										<label for="">merchantCode</label>
+										<input type="text" name="" ng-model="checkAmountReq.merchantCode" id="checkAmountReqMerchantCode" tabindex="5" class="form-control" placeholder="Page Index" ng-init="checkAmountReq.merchantCode ='TEST'">
+									</div>
+									<div class="form-group">
+										<label for="">Response Log</label>
+										<textarea rows="5" name="" ng-model="checkAmountRes" id="checkAmountRes" tabindex="6" class="form-control" placeholder="Response Log"></textarea>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="button" name="submit" ng-click="submitCheckAmount()" id="submitCheckAmount" tabindex="7" class="form-control btn btn-deposit" value="Submit">
+											</div>
+										</div>
+									</div>
+
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../js/jquery/jquery-3.2.1.js"></script>
+	<script src="../js/bootstrap/bootstrap-3.3.7.min.js"></script>
+	<script src="../js/bootstrap/bootstrap-dialog.min.js"></script>
+	<script src="../js/bootstrap/bootstrap-datetimepicker.min.js"></script>
+	<script src="../js/angular/angular-1.6.6.min.js"></script>
+	<script src='../js/checkAmount.js'></script>
+</html>

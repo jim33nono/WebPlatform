@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SG</title>
+
+<link rel="stylesheet" href="css/bootstrap-3.3.7.min.css">
+<link rel="stylesheet" href="css/bootstrap-dialog.min.css">
+<link rel="stylesheet" href="css/main.css">
+
+</head>
+<body ng-app="myApp" ng-controller="mainCtrl">
+	<div id="wrapper">
+		<div class="overlay"></div>
+
+		<!-- Sidebar -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper">
+			<ul class="nav sidebar-nav">
+				<li class="sidebar-brand">
+					<a ng-click="defaultPage()"> SG </a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Lotto Auth
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li class="dropdown-header"></li>
+						<li>
+							<a ng-click="checkLottoProd()">Lotto Prod API</a>
+						</li>
+						<li>
+							<a ng-click="checkLottoStaging()">Lotto Staging API</a>
+						</li>
+						<li>
+							<a ng-click="checkLottoDev()">Lotto Dev API</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Keno Auth
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li class="dropdown-header"></li>
+						<li>
+							<a ng-click="checkKenoProd()">Keno Prod API</a>
+						</li>
+						<li>
+							<a ng-click="checkKenoStaging()">Keno Staging API</a>
+						</li>
+						<li>
+							<a ng-click="checkKenoDev()">Keno Dev API</a>
+						</li>
+						<li>
+							<a ng-click="oneWalletKenoDev()">One Wallet Keno Dev</a>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<a ng-click="transfer()">Transfer</a>
+				</li>
+				<li>
+					<a ng-click="getAcctInfo()">Get AcctInfo</a>
+				</li>
+				<li>
+					<a ng-click="getBetHistory()">Get Bet History</a>
+				</li>
+				<li>
+					<a ng-click="checkStatus()">Check Status</a>
+				</li>
+				<li>
+					<a ng-click="getDrawResult()">Get Draw Result</a>
+				</li>
+				<li>
+					<a ng-click="checkAmount()">Check Amount</a>
+				</li>
+				<li>
+					<a ng-click="transferHistory()">Transferring History for One Wallet</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+				<span class="hamb-top"></span>
+				<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+			</button>
+			<div class="loading"></div>
+			<div class="container">
+				<div class="row">
+					<iframe id="contentFrame" class="contentFrame" src="html/defaultPage.html"> </iframe>
+					<div class="col-lg-8 col-lg-offset-2 dataInfo"></div>
+				</div>
+
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+
+
+	</div>
+	<!-- /#wrapper -->
+	<script src="js/jquery/jquery-3.2.1.js"></script>
+	<script src="js/bootstrap/bootstrap-3.3.7.min.js"></script>
+	<script src="js/bootstrap/bootstrap-dialog.min.js"></script>
+	<script src="js/angular/angular-1.6.6.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

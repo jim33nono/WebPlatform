@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="easy-sidebar-active">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="css/easy-sidebar.css"> -->
+
+<style>
+.w3-sidebar a {
+	font-family: "Roboto", sans-serif
+}
+
+body, h1, h2, h3, h4, h5, h6, .w3-wide {
+	font-family: "Montserrat", sans-serif;
+}
+</style>
+<script src="js/angular/angular.min.js"></script>
+<script src="js/jquery/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+
+
+</head>
+
+
+<body class="w3-content" style="max-width: 1200px">
+
+
+
+
+	<div ng-app="myApp" ng-controller="urlCtrl">
+
+		<nav class="w3-sidebar w3-bar-block w3-white  w3-top"
+			style="z-index: 3; width: 250px" id="mySidebar">
+			<div class="w3-container w3-display-container w3-padding-16">
+				<h3 class="w3-wide">
+					<b>SG</b>
+				</h3>
+			</div>
+			<div class="w3-padding-64 w3-large w3-text-grey"
+				style="font-weight: bold">
+				    <a class="w3-bar-item w3-button" ng-click="checkLottoProd()" target="_blank">Lotto Prod API</a> 
+				    <a class="w3-bar-item w3-button" ng-click="checkLottoStaging()" target="_blank">Lotto Staging API</a> 
+					<a class="w3-bar-item w3-button" ng-click="checkLottoDev()" target="_blank">Lotto Dev API</a> 
+					<a href="#" class="w3-bar-item w3-button">...</a> 
+					<a href="#" class="w3-bar-item w3-button">...</a>
+			</div>
+			<br>
+		</nav>
+
+
+
+
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('urlCtrl', function($scope, $http, $window) {
+								$scope.checkLottoProd = function() {
+									 $http({
+										    method : "POST",
+										    headers: { 'Content-type': 'application/json'},
+										    url : "http://api-auth-dev.sgplay.biz/prodTrigger.do"
+// 										    url : "http://localhost:8091/Web_Platform/prodTrigger.do"
+										  }).then(function mySuccess(response) {
+											  	console.log('success');
+										      	console.log(response.data);
+										        $window.location.href = response.data.url;
+										    }, function myError(response) {
+										    	console.log('error');
+										    	console.log(response);
+										  });
+								}
+								
+								$scope.checkLottoStaging = function() {
+									 $http({
+											method : "POST",
+										    headers: { 'Content-type': 'application/json'},
+										    url : "http://api-auth-dev.sgplay.biz/stagingTrigger.do"
+// 										    url : "http://localhost:8091/Web_Platform/stagingTrigger.do"
+										  }).then(function mySuccess(response) {
+											  	console.log('success');
+										      	console.log(response.data);
+										        $window.location.href = response.data.url;
+										    }, function myError(response) {
+										    	console.log('error');
+										    	console.log(response);
+										  });
+
+								}
+
+								$scope.checkLottoDev = function() {
+										$http({
+											method : "POST",
+										    headers: { 'Content-type': 'application/json'},
+										    url : "http://api-auth-dev.sgplay.biz/devTrigger.do"
+// 										    url : "http://localhost:8091/Web_Platform/devTrigger.do"
+										  }).then(function mySuccess(response) {
+											  	console.log('success');
+										      	console.log(response.data);
+										        $window.location.href = response.data.url;
+										    }, function myError(response) {
+										    	console.log('error');
+										    	console.log(response);
+										  });
+								}
+								
+						   });
+		</script>
+		<script>
+			//easy-sidebar-toggle-right
+			$('.easy-sidebar-toggle').click(function(e) {
+				e.preventDefault();
+				//$('body').toggleClass('toggled-right');
+				$('body').toggleClass('toggled');
+				//$('.navbar.easy-sidebar-right').removeClass('toggled-right');
+				$('.navbar.easy-sidebar').removeClass('toggled');
+			});
+		</script>
+</body>
+</html>

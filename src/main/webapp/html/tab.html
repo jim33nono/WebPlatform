@@ -1,0 +1,46 @@
+  <!DOCTYPE html>
+<html>
+  <head>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+  </head>
+  <body>
+    <div role="tabpanel">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact</a></li>
+        <li role="presentation"><a href="#friends" aria-controls="friends" role="tab" data-toggle="tab">Friends</a></li>
+        <li role="presentation"><a href="#awaiting" aria-controls="awaiting" role="tab" data-toggle="tab">Awaiting</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="contact" data-url="https://www.maltco.com/keno/QuickKeno_Today_Results.php">Loading Contacts...</div>
+        <div role="tabpanel" class="tab-pane" id="friends" data-url="http://jsbin.com/piyola/1/quiet">Loading Friends...</div>
+        <div role="tabpanel" class="tab-pane" id="awaiting" data-url="http://jsbin.com/cebukaw/1/quiet">Loading Awaiting...</div>
+      </div>
+
+    </div>
+	    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    
+    	$(function() {
+          $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+          	
+            var tab = $(e.target.attributes.href.nodeValue); 
+            console.log(tab)
+            $(tab).load(tab.data('url'));
+           
+          });
+
+        });
+
+	</script>
+  </body>
+    
+</html>

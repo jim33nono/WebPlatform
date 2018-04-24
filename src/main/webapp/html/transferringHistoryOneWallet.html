@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="../css/bootstrap-3.3.7.min.css">
+<link rel="stylesheet" href="../css/bootstrap-dialog.min.css">
+<link rel="stylesheet" href="../css/transferringHistory.css">
+
+</head>
+<body ng-app="myApp" ng-controller="transferringHistory">
+
+	<div class='container-fluid'>
+		<div class="row">
+			<div class="col-lg-9 col-md-offset-1">
+				<h3>Transferring History of one wallet</h3>
+
+				<!-- 		<div class='form-group'> -->
+				<!-- 			<div class='pull-right'> -->
+				<!-- 				<input class='btn btn-default' type='button' value='refresh'> -->
+				<!-- 			</div> -->
+				<!-- 		</div> -->
+				<table id='transferringHistory' class="table table-striped table-bordered transferringHistory" cellspacing="0" width="100%" data-show-pagination-switch="true" data-show-refresh="true" data-pagination="true" data-id-field="txId" data-page-list="[10, 20, 50, ALL]">
+
+					<thead>
+						<tr>
+							<th data-field="txId" data-formatter="ID: %s">Transaction:</th>
+							<th data-field="transferId">Transfer ID:</th>
+							<th data-field="ticketId">Ticket ID:</th>
+							<th data-field="acctId">Acct ID:</th>
+							<th data-field="amount" data-formatter="$ %s">Amount:</th>
+							<th data-field="transferType" data-formatter="typeFormatter">Type:</th>
+							<th data-field="operationTime" data-formatter="dateFormatter">Time:</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script src="../js/jquery/jquery-3.2.1.js"></script>
+	<script src="../js/bootstrap/bootstrap-3.3.7.min.js"></script>
+	<script src="../js/bootstrap/bootstrap-dialog.min.js"></script>
+	<script src="../js/bootstrap/bootstrap-table.js"></script>
+	<script src="../js/angular/angular-1.6.6.min.js"></script>
+	<script src='../js/transferringHistory.js'></script>
+</body>
+</html>
